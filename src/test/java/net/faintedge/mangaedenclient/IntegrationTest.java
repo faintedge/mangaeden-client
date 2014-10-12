@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -15,7 +16,7 @@ public class IntegrationTest {
   private static final Logger LOG = LoggerFactory.getLogger(IntegrationTest.class);
 
   @Test
-  public void testAll() throws Exception {
+  public void testAll() throws IOException {
     MangaEdenClient client = new MangaEdenClient();
 
     // test MangaEdenClient.getMangaList()

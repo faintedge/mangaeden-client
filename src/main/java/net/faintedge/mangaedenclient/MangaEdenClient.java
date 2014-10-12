@@ -5,6 +5,7 @@ import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 
+import java.io.IOException;
 import java.net.URI;
 import java.util.List;
 
@@ -27,15 +28,15 @@ public class MangaEdenClient {
     this(MangaEden.BASE_URI);
   }
 
-  public List<Manga> getMangaList() throws Exception {
+  public List<Manga> getMangaList() throws IOException {
     return getMangaList(null);
   }
 
-  public List<Manga> getMangaList(int page) throws Exception {
+  public List<Manga> getMangaList(int page) throws IOException {
     return getMangaList(new Integer(page));
   }
 
-  private List<Manga> getMangaList(Integer page) throws Exception {
+  private List<Manga> getMangaList(Integer page) throws IOException {
     String suffix = page != null ? "?p=" + page : "";
     URI uri = baseURI.resolve("/api/list/0/" + suffix);
     Request request = new Request.Builder().get().url(uri.toURL()).build();
@@ -46,7 +47,7 @@ public class MangaEdenClient {
     return mangaListResponse.getManga();
   }
 
-  public MangaDetails getMangaDetails(String mangaId) throws Exception {
+  public MangaDetails getMangaDetails(String mangaId) throws IOException {
     URI uri = baseURI.resolve("/api/manga/" + mangaId + "/");
     Request request = new Request.Builder().get().url(uri.toURL()).build();
 
@@ -55,7 +56,7 @@ public class MangaEdenClient {
     return GSON.fromJson(responseBody, MangaDetails.class);
   }
 
-  public ChapterDetails getChapterDetails(String chapterId) throws Exception {
+  public ChapterDetails getChapterDetails(String chapterId) throws IOException {
     URI uri = baseURI.resolve("/api/chapter/" + chapterId + "/");
     Request request = new Request.Builder().get().url(uri.toURL()).build();
 
