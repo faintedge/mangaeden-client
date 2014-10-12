@@ -1,6 +1,5 @@
 package net.faintedge.mangaedenclient;
 
-import com.google.common.base.Optional;
 import com.google.gson.Gson;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
@@ -34,11 +33,15 @@ public class MangaEdenClient {
   }
 
   public List<Manga> getMangaList() throws Exception {
-    return getMangaList(Optional.<Integer>absent());
+    return getMangaList(null);
   }
 
-  public List<Manga> getMangaList(Optional<Integer> page) throws Exception {
-    String suffix = page.isPresent() ? "?p=" + page.get() : "";
+  public List<Manga> getMangaList(int page) throws Exception {
+    return getMangaList(new Integer(page));
+  }
+
+  private List<Manga> getMangaList(Integer page) throws Exception {
+    String suffix = page != null ? "?p=" + page : "";
     URI uri = baseURI.resolve("/api/list/0/" + suffix);
     Request request = new Request.Builder().get().url(uri.toURL()).build();
 

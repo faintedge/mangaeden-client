@@ -1,7 +1,5 @@
 package net.faintedge.mangaedenclient;
 
-import com.google.common.base.Objects;
-
 /**
  *
  */
@@ -37,11 +35,12 @@ public class Chapter {
 
   @Override
   public String toString() {
-    return Objects.toStringHelper(this)
-      .add("number", number)
-      .add("date", date)
-      .add("title", title)
-      .add("id", id)
-      .toString();
+    final StringBuilder sb = new StringBuilder("Chapter{");
+    sb.append("number=").append(number);
+    sb.append(", date=").append(date);
+    sb.append(", title='").append(title).append('\'');
+    sb.append(", id='").append(id).append('\'');
+    sb.append('}');
+    return sb.toString();
   }
 }

@@ -1,6 +1,5 @@
 package net.faintedge.mangaedenclient;
 
-import com.google.common.collect.Iterables;
 import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -20,9 +19,8 @@ public class IntegrationTest {
     List<Manga> mangaList = client.getMangaList();
     Assert.assertFalse(mangaList.isEmpty());
 
-    Iterable<Manga> limitedMangaList = Iterables.limit(mangaList, 10);
-    for (Manga manga : limitedMangaList) {
-      LOG.info(manga.toString());
+    for (int i = 0; i < Math.min(mangaList.size(), 10); i++) {
+      LOG.info(mangaList.get(i).toString());
     }
 
     // test MangaEdenClient.getMangaDetails()

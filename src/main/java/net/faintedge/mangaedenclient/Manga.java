@@ -1,6 +1,5 @@
 package net.faintedge.mangaedenclient;
 
-import com.google.common.base.Objects;
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -104,14 +103,15 @@ public class Manga {
 
   @Override
   public String toString() {
-    return Objects.toStringHelper(this)
-      .add("image", image)
-      .add("title", title)
-      .add("id", id)
-      .add("alias", alias)
-      .add("status", status)
-      .add("lastChapterDate", lastChapterDate)
-      .add("hits", hits)
-      .toString();
+    final StringBuilder sb = new StringBuilder("Manga{");
+    sb.append("image='").append(image).append('\'');
+    sb.append(", title='").append(title).append('\'');
+    sb.append(", id='").append(id).append('\'');
+    sb.append(", alias='").append(alias).append('\'');
+    sb.append(", status=").append(status);
+    sb.append(", lastChapterDate=").append(lastChapterDate);
+    sb.append(", hits=").append(hits);
+    sb.append('}');
+    return sb.toString();
   }
 }

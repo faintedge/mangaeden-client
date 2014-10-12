@@ -1,7 +1,5 @@
 package net.faintedge.mangaedenclient;
 
-import com.google.common.base.Objects;
-
 /**
  *
  */
@@ -41,11 +39,12 @@ public class ChapterPage {
 
   @Override
   public String toString() {
-    return Objects.toStringHelper(this)
-      .add("number", number)
-      .add("imageURL", getImageURL())
-      .add("width", width)
-      .add("height", height)
-      .toString();
+    final StringBuilder sb = new StringBuilder("ChapterPage{");
+    sb.append("number=").append(number);
+    sb.append(", image='").append(image).append('\'');
+    sb.append(", width=").append(width);
+    sb.append(", height=").append(height);
+    sb.append('}');
+    return sb.toString();
   }
 }

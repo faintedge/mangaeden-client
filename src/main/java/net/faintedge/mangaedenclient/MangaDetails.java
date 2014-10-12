@@ -1,6 +1,5 @@
 package net.faintedge.mangaedenclient;
 
-import com.google.common.base.Objects;
 import com.google.gson.annotations.SerializedName;
 import net.faintedge.mangaedenclient.internal.Cast;
 
@@ -116,16 +115,19 @@ public class MangaDetails {
 
   @Override
   public String toString() {
-    return Objects.toStringHelper(this)
-      .add("alias", alias)
-      .add("categories", Arrays.toString(categories))
-      .add("created", created)
-      .add("hits", hits)
-      .add("image", image)
-      .add("title", title)
-      .add("titleKeywords", titleKeywords)
-      .add("status", status)
-      .add("startsWith", startsWith)
-      .toString();
+    final StringBuilder sb = new StringBuilder("MangaDetails{");
+    sb.append("alias='").append(alias).append('\'');
+    sb.append(", categories=").append(Arrays.toString(categories));
+    sb.append(", chapters=").append(Arrays.toString(chapters));
+    sb.append(", created=").append(created);
+    sb.append(", description='").append(description).append('\'');
+    sb.append(", hits=").append(hits);
+    sb.append(", image='").append(image).append('\'');
+    sb.append(", title='").append(title).append('\'');
+    sb.append(", titleKeywords=").append(Arrays.toString(titleKeywords));
+    sb.append(", status=").append(status);
+    sb.append(", startsWith='").append(startsWith).append('\'');
+    sb.append('}');
+    return sb.toString();
   }
 }
