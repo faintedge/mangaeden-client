@@ -3,6 +3,7 @@ package net.faintedge.mangaedenclient;
 import com.google.gson.annotations.SerializedName;
 import net.faintedge.mangaedenclient.internal.Cast;
 
+import java.net.URI;
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -81,6 +82,10 @@ public class MangaDetails {
 
   public String getStartsWith() {
     return startsWith;
+  }
+
+  public URI getURI() {
+    return MangaEden.mangaDetails2URI(this);
   }
 
   private Object[][] chapterArrayToObjectArrays(Chapter[] input) {

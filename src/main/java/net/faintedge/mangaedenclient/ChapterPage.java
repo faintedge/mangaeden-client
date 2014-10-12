@@ -1,5 +1,7 @@
 package net.faintedge.mangaedenclient;
 
+import java.net.URI;
+
 /**
  *
  */
@@ -25,8 +27,8 @@ public class ChapterPage {
     return image;
   }
 
-  public String getImageURL() {
-    return "http://cdn.mangaeden.com/mangasimg/" + image;
+  public URI getImageURI() {
+    return MangaEden.chapterPage2ImageURI(this);
   }
 
   public int getWidth() {

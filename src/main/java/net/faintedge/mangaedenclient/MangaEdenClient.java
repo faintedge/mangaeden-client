@@ -4,8 +4,6 @@ import com.google.gson.Gson;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.net.URI;
 import java.util.List;
@@ -15,10 +13,7 @@ import java.util.List;
  */
 public class MangaEdenClient {
 
-  private static final Logger LOG = LoggerFactory.getLogger(MangaEdenClient.class);
   private static final Gson GSON = new Gson();
-
-  private static final URI DEFAULT_MANGA_EDEN_URI = URI.create("http://www.mangaeden.com");
 
   private final OkHttpClient httpClient;
   private final URI baseURI;
@@ -29,7 +24,7 @@ public class MangaEdenClient {
   }
 
   public MangaEdenClient() {
-    this(DEFAULT_MANGA_EDEN_URI);
+    this(MangaEden.BASE_URI);
   }
 
   public List<Manga> getMangaList() throws Exception {

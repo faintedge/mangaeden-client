@@ -1,5 +1,7 @@
 package net.faintedge.mangaedenclient;
 
+import java.net.URI;
+
 /**
  *
  */
@@ -31,6 +33,15 @@ public class Chapter {
 
   public String getId() {
     return id;
+  }
+
+  /**
+   * @param mangaDetails details of the manga that this chapter belongs to
+   * @param page page number (starts from 1)
+   * @return the URI of the chapter page
+   */
+  public URI getPageURI(MangaDetails mangaDetails, int page) {
+    return MangaEden.chapter2PageURI(this, mangaDetails, page);
   }
 
   @Override
