@@ -7,6 +7,9 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
+/**
+ * Integration test for {@link MangaEdenClient}.
+ */
 public class IntegrationTest {
 
   private static final Logger LOG = LoggerFactory.getLogger(IntegrationTest.class);
