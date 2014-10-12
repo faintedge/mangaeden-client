@@ -13,8 +13,10 @@ public class IntegrationTest {
   private static final Logger LOG = LoggerFactory.getLogger(IntegrationTest.class);
 
   @Test
-  public void testGetMangaList() throws Exception {
-    MangaEdenClient client = getClient();
+  public void testAll() throws Exception {
+    MangaEdenClient client = new MangaEdenClient();
+
+    // test MangaEdenClient.getMangaList()
     List<Manga> mangaList = client.getMangaList();
     Assert.assertFalse(mangaList.isEmpty());
 
@@ -22,12 +24,9 @@ public class IntegrationTest {
     for (Manga manga : limitedMangaList) {
       LOG.info(manga.toString());
     }
-  }
 
-  @Test
-  public void testGetMangaInfo() throws Exception {
-    MangaEdenClient client = getClient();
-    String mangaId = "4e70e91ac092255ef70016d6";
+    // test MangaEdenClient.getMangaDetails()
+    String mangaId = mangaList.get(0).getId();
     MangaDetails mangaDetails = client.getMangaDetails(mangaId);
     Assert.assertNotNull(mangaDetails);
     Assert.assertNotNull(mangaDetails.getChapters());
@@ -37,12 +36,9 @@ public class IntegrationTest {
     for (int i = 0; i < Math.min(chapters.length, 10); i++) {
       LOG.info(chapters[i].toString());
     }
-  }
 
-  @Test
-  public void testGetChapterPage() throws Exception {
-    MangaEdenClient client = getClient();
-    ChapterDetails chapterDetails = client.getChapterDetails("4e711f96c09225616d03b3ba");
+    // test MangaEdenClient.getMangaList()
+    ChapterDetails chapterDetails = client.getChapterDetails(mangaDetails.getChapters()[0].getId());
     Assert.assertNotNull(chapterDetails);
     Assert.assertNotNull(chapterDetails.getPages());
 
@@ -50,9 +46,5 @@ public class IntegrationTest {
     for (int i = 0; i < Math.min(pages.length, 10); i++) {
       LOG.info(pages[i].toString());
     }
-  }
-
-  private MangaEdenClient getClient() {
-    return new MangaEdenClient();
   }
 }
