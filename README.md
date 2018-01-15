@@ -5,7 +5,7 @@ Java client for the MangaEden API: https://www.mangaeden.com/api/
 ## Usage
 
 ```
-MangaEdenClient client = new ManagaEdenClient();
+MangaEdenClient client = new MangaEdenClient();
 
 // Get list of manga
 List<Manga> mangaList = client.getMangaList();
