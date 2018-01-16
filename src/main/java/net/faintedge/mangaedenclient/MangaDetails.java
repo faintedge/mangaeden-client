@@ -6,24 +6,28 @@ import net.faintedge.mangaedenclient.internal.Cast;
 import java.net.URI;
 import java.util.Arrays;
 import java.util.Comparator;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  */
+@Data
+@NoArgsConstructor
 public class MangaDetails {
 
-  private final String alias;
-  private final String[] categories;
-  private final Object[][] chapters;
-  private final long created;
-  private final String description;
-  private final long hits;
-  private final String image;
-  private final String title;
+  private String alias;
+  private String[] categories;
+  private Object[][] chapters;
+  private long created;
+  private String description;
+  private long hits;
+  private String image;
+  private String title;
   @SerializedName("title_kw")
-  private final String[] titleKeywords;
-  private final int status;
-  private final String startsWith;
+  private String[] titleKeywords;
+  private int status;
+  private String startsWith;
 
   public MangaDetails(String alias, String[] categories, Chapter[] chapters, long created, String description,
                       long hits, String image, String title, String[] titleKeywords, int status, String startsWith) {
@@ -39,54 +43,14 @@ public class MangaDetails {
     this.status = status;
     this.startsWith = startsWith;
   }
-
-  public String getAlias() {
-    return alias;
-  }
-
-  public String[] getCategories() {
-    return categories;
-  }
-
+  
   public Chapter[] getChapters() {
     return objectArraysToChapterArray(chapters);
-  }
-
-  public long getCreated() {
-    return created;
-  }
-
-  public String getDescription() {
-    return description;
-  }
-
-  public long getHits() {
-    return hits;
-  }
-
-  public String getImage() {
-    return image;
-  }
-
-  public String getTitle() {
-    return title;
-  }
-
-  public String[] getTitleKeywords() {
-    return titleKeywords;
-  }
-
-  public int getStatus() {
-    return status;
-  }
-
-  public String getStartsWith() {
-    return startsWith;
-  }
-
+  }  
+  
   public URI getURI() {
     return MangaEden.mangaDetails2URI(this);
-  }
+  }  
 
   private Object[][] chapterArrayToObjectArrays(Chapter[] input) {
     Object[][] result = new Object[input.length][4];

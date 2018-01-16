@@ -1,38 +1,26 @@
 package net.faintedge.mangaedenclient;
 
 import java.net.URI;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  */
+@Data
+@NoArgsConstructor
 public class Chapter {
 
-  private final int number;
-  private final long date;
-  private final String title;
-  private final String id;
+  private int number;
+  private long date;
+  private String title;
+  private String id;
 
   public Chapter(int number, long date, String title, String id) {
     this.number = number;
     this.date = date;
     this.title = title;
     this.id = id;
-  }
-
-  public int getNumber() {
-    return number;
-  }
-
-  public long getDate() {
-    return date;
-  }
-
-  public String getTitle() {
-    return title;
-  }
-
-  public String getId() {
-    return id;
   }
 
   /**
