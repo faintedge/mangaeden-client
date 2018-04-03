@@ -1,32 +1,36 @@
 package net.faintedge.mangaedenclient;
 
 import com.google.gson.annotations.SerializedName;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  */
+@Data
+@NoArgsConstructor
 public class Manga {
 
   @SerializedName("im")
-  private final String image;
+  private String image;
 
   @SerializedName("t")
-  private final String title;
+  private String title;
 
   @SerializedName("i")
-  private final String id;
+  private String id;
 
   @SerializedName("a")
-  private final String alias;
+  private String alias;
 
   @SerializedName("s")
-  private final int status;
+  private int status;
 
   @SerializedName("ld")
-  private final double lastChapterDate;
+  private double lastChapterDate;
 
   @SerializedName("h")
-  private final long hits;
+  private long hits;
 
 
   public Manga(String image, String title, String id, String alias, int status,
@@ -38,34 +42,6 @@ public class Manga {
     this.status = status;
     this.lastChapterDate = lastChapterDate;
     this.hits = hits;
-  }
-
-  public String getImage() {
-    return image;
-  }
-
-  public String getTitle() {
-    return title;
-  }
-
-  public String getId() {
-    return id;
-  }
-
-  public String getAlias() {
-    return alias;
-  }
-
-  public int getStatus() {
-    return status;
-  }
-
-  public double getLastChapterDate() {
-    return lastChapterDate;
-  }
-
-  public long getHits() {
-    return hits;
   }
 
   @Override

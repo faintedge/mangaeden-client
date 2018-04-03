@@ -1,16 +1,20 @@
 package net.faintedge.mangaedenclient;
 
 import java.net.URI;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
  */
+@Data
+@NoArgsConstructor
 public class ChapterPage {
 
-  private final int number;
-  private final String image;
-  private final int width;
-  private final int height;
+  private int number;
+  private String image;
+  private int width;
+  private int height;
 
   public ChapterPage(int number, String image, int width, int height) {
     this.number = number;
@@ -19,24 +23,8 @@ public class ChapterPage {
     this.height = height;
   }
 
-  public int getNumber() {
-    return number;
-  }
-
-  public String getImage() {
-    return image;
-  }
-
   public URI getImageURI() {
     return MangaEden.chapterPage2ImageURI(this);
-  }
-
-  public int getWidth() {
-    return width;
-  }
-
-  public int getHeight() {
-    return height;
   }
 
   @Override
