@@ -22,11 +22,3 @@ ChapterPage[] pages = chapterDetails.getPages();
 // Get chapter page image URLs
 String imageUrl = pages[0];
 ```
-
-## Building
-
-```java
-git clone git@github.com:faintedge/mangaeden-client.git
-cd mangaeden-client
-mvn install
-```
