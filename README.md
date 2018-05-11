@@ -4,7 +4,7 @@ Java client for the MangaEden API: https://www.mangaeden.com/api/
 
 ## Usage
 
-```
+```java
 MangaEdenClient client = new ManagaEdenClient();
 
 // Get list of manga
@@ -25,7 +25,7 @@ String imageUrl = pages[0];
 
 ## Building
 
-```
+```java
 git clone git@github.com:faintedge/mangaeden-client.git
 cd mangaeden-client
 mvn install
